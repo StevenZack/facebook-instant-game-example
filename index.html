@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
+    <script>
+        const assets = [
+        ];
+        window.onload = function () {
+            FBInstant.initializeAsync().then(function () {
+                for (let i in assets) {
+                    FBInstant.setLoadingProgress(i / assets.length * 100);
+                }
+                FBInstant.startGameAsync().then(onStart);
+            });
+        };
+        function onStart() {
+            document.writeln('game started')
+        }
+    </script>
     hello world
 </body>
+
 </html>
